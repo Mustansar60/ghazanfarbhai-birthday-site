@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Happy Birthday, Laraib Zahra 🎉</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --pink: #ff69b4;
+        --purple: #8a2be2;
+        --gold: #ffd700;
+        --white: #ffffff;
+        --bg: linear-gradient(135deg, rgba(255,192,203,0.25), rgba(186,85,211,0.25));
+      }
+
+      body {
+        font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: var(--bg);
+        color: #3c2a4d;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Animated banner */
+      .hero {
+        position: relative;
+        background: radial-gradient(circle at 20% 20%, rgba(255,105,180,0.35), transparent 60%),
+                    radial-gradient(circle at 80% 30%, rgba(138,43,226,0.35), transparent 60%),
+                    radial-gradient(circle at 50% 80%, rgba(255,215,0,0.25), transparent 50%);
+        padding: 4rem 1rem;
+        text-align: center;
+        border-bottom: 3px dashed rgba(255,105,180,0.35);
+      }
+      .hero-title {
+        font-size: clamp(2rem, 6vw, 4rem);
+        font-weight: 800;
+        color: var(--purple);
+        text-shadow: 0 2px 0 #fff, 0 6px 12px rgba(138,43,226,0.35);
+        letter-spacing: 1px;
+        animation: floaty 4s ease-in-out infinite;
+      }
+      .hero-subtitle {
+        color: #7a5fa6;
+        font-weight: 600;
+      }
+
+      @keyframes floaty {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      /* Balloons */
+      .balloon {
+        position: absolute;
+        width: 20px; height: 26px; border-radius: 50% 50% 50% 50%;
+        background: var(--pink);
+        box-shadow: inset 0 0 10px rgba(255,255,255,0.6);
+        animation: rise 10s linear infinite;
+        opacity: 0.8;
+      }
+      .balloon:nth-child(1){ left:5%; animation-duration:12s; background:#ff8dc9; }
+      .balloon:nth-child(2){ left:20%; animation-duration:10s; background:#b388ff; }
+      .balloon:nth-child(3){ left:35%; animation-duration:14s; background:#ffd166; }
+      .balloon:nth-child(4){ left:60%; animation-duration:11s; background:#ff69b4; }
+      .balloon:nth-child(5){ left:80%; animation-duration:13s; background:#cfa0ff; }
+      @keyframes rise { from { bottom:-60px; } to { bottom:110%; } }
+
+      /* Cards */
+      .card-glow {
+        border: 0;
+        background: rgba(255,255,255,0.85);
+        box-shadow: 0 10px 30px rgba(138,43,226,0.15), 0 0 0 2px rgba(255,215,0,0.15) inset;
+        backdrop-filter: blur(6px);
+        border-radius: 1rem;
+      }
+      .section-title {
+        color: var(--purple);
+        font-weight: 800;
+        display: inline-flex; align-items: center; gap: .5rem;
+      }
+      .sparkle {
+        color: var(--gold);
+        text-shadow: 0 0 6px rgba(255,215,0,0.8);
+      }
+
+      /* Gallery */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+      }
+      .gallery-item {
+        position: relative; overflow: hidden; border-radius: .75rem;
+        border: 2px solid rgba(255,105,180,0.25);
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        transition: transform .2s ease, box-shadow .2s ease;
+      }
+      .gallery-item:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+      .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+      /* Controls */
+      .celebrate-buttons .btn { margin: .25rem; }
+      .btn-cake { background: linear-gradient(135deg, #ff77c8, #c77dff); color: #fff; border: 0; }
+      .btn-confetti { background: #ffd700; border: 0; }
+      .btn-fireworks { background: #8a2be2; color: #fff; border: 0; }
+
+      /* Footer */
+      .footer-love { color: #b36bff; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <section class="hero position-relative overflow-hidden">
+      <div class="container position-relative">
+        <h1 class="hero-title">Happy Birthday <span class="text-decoration-underline">Laraib Zahra</span> 🎉🎂❤️</h1>
+        <p class="hero-subtitle">From your husband <strong>Ghazanfar Maqsood</strong> and your lovely kids <strong>Hurain</strong>, <strong>Nalain</strong>, and <strong>Adan</strong>.</p>
+        <div class="mt-3 celebrate-buttons">
+          <button id="btnConfetti" class="btn btn-confetti"><i class="fa-solid fa-champagne-glasses"></i> Confetti 🎊</button>
+          <button id="btnFireworks" class="btn btn-fireworks"><i class="fa-solid fa-wand-magic-sparkles"></i> Fireworks 🎆</button>
+          <button id="btnCake" class="btn btn-cake"><i class="fa-solid fa-cake-candles"></i> Cake 🎂</button>
+        </div>
+      </div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </section>
+
+    <main class="container my-4">
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="card card-glow h-100">
+            <div class="card-body">
+              <h3 class="section-title"><i class="fa-solid fa-heart sparkle"></i> Family Wishes</h3>
+              <p class="text-muted mb-3">Warm messages for Laraib from family and friends.</p>
+
+              <ul id="wishesList" class="list-group list-group-flush mb-3">
+                {% for w in wishes %}
+                <li class="list-group-item d-flex align-items-start" style="background: transparent;">
+                  <div>
+                    <div class="fw-bold text-danger"><i class="fa-solid fa-user"></i> {{ w['from'] }}</div>
+                    <div>{{ w['message'] }}</div>
+                    <small class="text-muted">{{ w['time'] }}</small>
+                  </div>
+                </li>
+                {% endfor %}
+              </ul>
+
+              <form id="wishForm" class="row gy-2">
+                <div class="col-12 col-md-5">
+                  <input name="from" class="form-control" placeholder="Your name" maxlength="60">
+                </div>
+                <div class="col-12 col-md-5">
+                  <input name="message" class="form-control" placeholder="Your short wish (max 240)" maxlength="240" required>
+                </div>
+                <div class="col-12 col-md-2 d-grid">
+                  <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Send</button>
+                </div>
+              </form>
+              <div id="wishAlert" class="mt-2"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="card card-glow h-100">
+            <div class="card-body">
+              <h3 class="section-title"><i class="fa-solid fa-images sparkle"></i> Photo Gallery</h3>
+              <p class="text-muted mb-3">Memories in pink, purple, and gold.</p>
+              <div class="gallery-grid">
+                {% if images %}
+                  {% for img in images %}
+                  <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal" data-img-src="{{ url_for('static', filename='images/' + img) }}">
+                    <img src="{{ url_for('static', filename='images/' + img) }}" alt="Photo {{ loop.index }}">
+                  </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="alert alert-warning">Add images to <code>static/images/</code> to see the gallery.</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mt-1">
+        <div class="col-12">
+          <div class="card card-glow">
+            <div class="card-body">
+              <h3 class="section-title"><i class="fa-solid fa-music sparkle"></i> Birthday Music</h3>
+              {% if music_files %}
+              <div class="d-flex flex-column flex-md-row align-items-center gap-3">
+                <select id="trackSelect" class="form-select" style="max-width: 320px;">
+                  {% for m in music_files %}
+                  <option value="{{ url_for('static', filename='music/' + m) }}">{{ m }}</option>
+                  {% endfor %}
+                </select>
+                <div class="btn-group" role="group">
+                  <button id="btnPlay" class="btn btn-success"><i class="fa-solid fa-play"></i></button>
+                  <button id="btnPause" class="btn btn-secondary"><i class="fa-solid fa-pause"></i></button>
+                  <button id="btnMute" class="btn btn-warning"><i class="fa-solid fa-volume-xmark"></i></button>
+                </div>
+                <div class="ms-auto small text-muted" id="nowPlaying"></div>
+                <audio id="audio" preload="metadata"></audio>
+              </div>
+              {% else %}
+                <div class="alert alert-info">Place MP3 files in <code>static/music/</code> to enable the player.</div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center my-4">
+        <span class="footer-love">Made with endless love by Ghazanfar, Hurain, Nalain, and Adan 💖</span>
+      </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="background: rgba(255,255,255,0.95);">
+          <div class="modal-header">
+            <h5 class="modal-title">Photo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img id="modalImage" src="#" alt="Selected" class="img-fluid rounded" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Wishes form submission (AJAX)
+      const wishForm = document.getElementById('wishForm');
+      const wishesList = document.getElementById('wishesList');
+      const wishAlert = document.getElementById('wishAlert');
+      if (wishForm) {
+        wishForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(wishForm);
+          const payload = { from: formData.get('from') || 'Guest', message: (formData.get('message') || '').toString() };
+          try {
+            const res = await fetch('/wish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+            const data = await res.json();
+            if (!res.ok || !data.ok) throw new Error(data.error || 'Failed to send');
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex align-items-start';
+            li.style.background = 'transparent';
+            li.innerHTML = `<div><div class="fw-bold text-danger"><i class="fa-solid fa-user"></i> ${data.wish.from}</div><div>${data.wish.message}</div><small class="text-muted">${data.wish.time}</small></div>`;
+            wishesList.appendChild(li);
+            wishForm.reset();
+            wishAlert.innerHTML = '<div class="alert alert-success py-1 mt-2">Your wish was added! 💖</div>';
+            setTimeout(()=> wishAlert.innerHTML='', 2500);
+          } catch (err) {
+            wishAlert.innerHTML = `<div class="alert alert-danger py-1 mt-2">${err.message}</div>`;
+            setTimeout(()=> wishAlert.innerHTML='', 3500);
+          }
+        });
+      }
+
+      // Gallery modal
+      const imageModal = document.getElementById('imageModal');
+      if (imageModal) {
+        imageModal.addEventListener('show.bs.modal', (event) => {
+          const trigger = event.relatedTarget;
+          const src = trigger?.getAttribute('data-img-src');
+          const modalImg = document.getElementById('modalImage');
+          modalImg.src = src || '#';
+        });
+      }
+
+      // Audio player
+      const audio = document.getElementById('audio');
+      const trackSelect = document.getElementById('trackSelect');
+      const nowPlaying = document.getElementById('nowPlaying');
+      const btnPlay = document.getElementById('btnPlay');
+      const btnPause = document.getElementById('btnPause');
+      const btnMute = document.getElementById('btnMute');
+
+      function setTrack(src) {
+        if (!audio || !src) return;
+        audio.src = src;
+        audio.play().catch(()=>{});
+        if (nowPlaying) nowPlaying.textContent = 'Now playing: ' + (trackSelect?.selectedOptions?.[0]?.text || '');
+      }
+      if (trackSelect && audio) {
+        setTrack(trackSelect.value);
+        trackSelect.addEventListener('change', (e) => setTrack(e.target.value));
+      }
+      btnPlay?.addEventListener('click', ()=> audio?.play());
+      btnPause?.addEventListener('click', ()=> audio?.pause());
+      btnMute?.addEventListener('click', ()=> audio && (audio.muted = !audio.muted));
+
+      // Confetti and Fireworks (vanilla lightweight)
+      function launchConfettiBurst() {
+        const duration = 1200;
+        const end = Date.now() + duration;
+        const colors = ['#ff69b4','#ffd700','#8a2be2','#ffffff'];
+        const container = document.body;
+        const makePiece = () => {
+          const el = document.createElement('i');
+          el.className = 'fa-solid fa-star';
+          el.style.position = 'fixed';
+          el.style.left = Math.random()*100 + 'vw';
+          el.style.top = '-10px';
+          el.style.color = colors[Math.floor(Math.random()*colors.length)];
+          el.style.fontSize = (10 + Math.random()*16) + 'px';
+          el.style.transform = 'translateY(0)';
+          el.style.transition = 'transform 1.2s linear, opacity 1.2s linear';
+          container.appendChild(el);
+          requestAnimationFrame(() => {
+            el.style.transform = `translateY(${100+Math.random()*120}vh) rotate(${Math.random()*720}deg)`;
+            el.style.opacity = '0';
+          });
+          setTimeout(()=> el.remove(), 1300);
+        };
+        const frame = () => {
+          if (Date.now() > end) return;
+          for (let i=0;i<18;i++) makePiece();
+          requestAnimationFrame(frame);
+        };
+        frame();
+      }
+
+      function launchFireworks() {
+        const container = document.createElement('div');
+        container.style.position = 'fixed';
+        container.style.left = '0';
+        container.style.top = '0';
+        container.style.width = '100vw';
+        container.style.height = '100vh';
+        container.style.pointerEvents = 'none';
+        document.body.appendChild(container);
+
+        const colors = ['#ffd700','#ff69b4','#8a2be2','#ffffff'];
+        for (let k=0;k<6;k++) {
+          setTimeout(()=>{
+            const originX = Math.random()*100; // vw
+            const originY = 30 + Math.random()*30; // vh
+            for (let i=0;i<50;i++) {
+              const p = document.createElement('span');
+              p.style.position = 'absolute';
+              p.style.left = originX + 'vw';
+              p.style.top = originY + 'vh';
+              p.style.width = '3px';
+              p.style.height = '3px';
+              p.style.borderRadius = '50%';
+              p.style.background = colors[i % colors.length];
+              container.appendChild(p);
+              const angle = Math.random()*2*Math.PI;
+              const distance = 20 + Math.random()*40; // vh
+              const dx = Math.cos(angle) * distance;
+              const dy = Math.sin(angle) * distance;
+              p.animate([
+                { transform: 'translate(0,0)', opacity: 1 },
+                { transform: `translate(${dx}vw, ${dy}vh)`, opacity: 0 }
+              ], { duration: 1200 + Math.random()*600, easing: 'ease-out', fill: 'forwards' });
+              setTimeout(()=> p.remove(), 2200);
+            }
+          }, k*400);
+        }
+        setTimeout(()=> container.remove(), 3500);
+      }
+
+      document.getElementById('btnConfetti')?.addEventListener('click', launchConfettiBurst);
+      document.getElementById('btnFireworks')?.addEventListener('click', launchFireworks);
+      document.getElementById('btnCake')?.addEventListener('click', () => {
+        launchConfettiBurst();
+        const toast = document.createElement('div');
+        toast.className = 'position-fixed top-0 start-50 translate-middle-x alert alert-pink shadow';
+        toast.style.zIndex = '1060';
+        toast.style.background = 'linear-gradient(135deg, #ff77c8, #ffd700)';
+        toast.style.color = '#4b2e83';
+        toast.style.border = '0';
+        toast.innerHTML = '<strong>Make a wish for Laraib Zahra!</strong> ✨🎂';
+        document.body.appendChild(toast);
+        setTimeout(()=> toast.remove(), 2500);
+      });
+    </script>
+  </body>
+  </html>
+
